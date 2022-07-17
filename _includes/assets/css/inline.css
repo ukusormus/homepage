@@ -1,11 +1,21 @@
 :root {
-	--primary: blue;
-	--secondary: white;
-	--background: #FFF0EB;
+	--primary: white;
+	--secondary: #395B64;
+	--text: white;
+	/* --border */
+	--background: #2C3333;
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
+/*
+https://mxb.dev/blog/color-theme-switcher/
+https://colorhunt.co/palette/2c3333395b64a5c9cae7f6f2
+#A5C9CA
+#E7F6F2*/
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
 }
 
 html,
@@ -28,8 +38,19 @@ main {
 
 p,
 pre,
-code {
+code,
+small {
 	line-height: 1.5;
+	color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--text);
 }
 
 a[href],
@@ -37,9 +58,20 @@ a[href]:visited {
 	color: var(--primary);
 }
 
+
 a[href]:not(:hover) {
 	text-decoration: none;
 }
+
+/* header *,
+h1 *,
+h2 *,
+h3 *,
+h4 *,
+h5 *,
+h6 * {
+	text-decoration: none !important;
+} */
 
 img {
 	max-width: 100%;
@@ -57,7 +89,7 @@ main {
 }
 
 main :first-child,
-main > article :first-child {
+main>article :first-child {
 	margin-top: 0;
 }
 
@@ -79,7 +111,7 @@ pre {
 }
 
 /* Header Logo (style as h2) */
-header > em {
+header>em {
 	display: block;
 	font-size: 2em;
 	margin: .67em 0;
@@ -112,7 +144,7 @@ header nav li a[href]:not(:hover) {
 }
 
 header nav li a[data-current="current item"] {
-	background-color: white;
+	background-color: var(--secondary);
 }
 
 /* Posts List */
@@ -123,7 +155,7 @@ article {
 	border-bottom: 1px solid var(--secondary);
 }
 
-main > section > article > * {
+main>section>article>* {
 	margin-top: 0;
 	margin-bottom: .5em;
 }
@@ -132,18 +164,18 @@ main > section > article > * {
 a[rel="tag"],
 a[rel="tag"]:visited {
 	display: inline-block;
-  vertical-align: text-top;
-  text-transform: uppercase;
+	vertical-align: text-top;
+	text-transform: uppercase;
 	letter-spacing: .1em;
-  font-size: .625em;
-  padding: 0 .5em;
+	font-size: .625em;
+	padding: 0 .5em;
 	line-height: 2em;
 	height: 2em;
-  border: 1px solid var(--secondary);
+	border: 1px solid var(--secondary);
 	background-color: var(--secondary);
 	color: var(--primary);
-  border-radius: .25em;
-  text-decoration: none;
+	border-radius: .25em;
+	text-decoration: none;
 	margin: 0 .5em .5em 0;
 }
 
@@ -159,20 +191,20 @@ a[rel="tag"]:last-child {
 
 /* Contact Form */
 form {
-  display: grid;
+	display: grid;
 	padding: 2em 0;
 }
 
 form label {
-  display: none;
+	display: none;
 }
 
 input,
 textarea,
 button {
-  width: 100%;
-  padding: 1em;
-  margin-bottom: 1em;
+	width: 100%;
+	padding: 1em;
+	margin-bottom: 1em;
 	font-size: 1rem;
 	font-family: "Avenir", "Avenir Next", sans-serif;
 }
