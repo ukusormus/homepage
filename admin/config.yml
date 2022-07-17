@@ -3,13 +3,13 @@
 # The backend option specifies how to access the content for your site
 backend:
   name: git-gateway
-  branch: master # The branch to update (optional; defaults to master)
+  branch: main # The branch to update (optional; defaults to master)
 
 # Uncomment below to enable drafts https://www.netlifycms.org/docs/add-to-your-site/#editorial-workflow
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 # Uncomment below to enable a link to your published site in the header bar of Netlify CMS
-# site_url: https://eleventy-netlify-boilerplate.netlify.app/
+site_url: https://ukusormus.com/
 
 media_folder: "static/img" # Media files will be stored in the repo under images/uploads
 
@@ -23,7 +23,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string", default: "Anonymous" }
+      - { label: "Author", name: "author", widget: "string", default: "Uku Sõrmus" }
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
