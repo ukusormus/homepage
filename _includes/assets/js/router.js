@@ -6,6 +6,7 @@ const navLinks = document.querySelectorAll("header > nav a");
 for (let link of navLinks) {
     link.addEventListener("click", function (event) {
         event.preventDefault(); // Override link click default behavior
+        setNavBackground(link.parentElement.id);
         getPageAndUpdate(link.href);
     });
 }
@@ -18,6 +19,9 @@ function getPageAndUpdate(url) {
         return
     }
     
+    // TODO: don't fetch when we already browsed
+    //  or better yet, prefetch
+
     fetch(url)
         .then(function (response) {
             // The API call was successful!
@@ -44,7 +48,7 @@ function getPageAndUpdate(url) {
             // Add page to history and modify page URL
             window.history.pushState({ "title": newTitle, "innerHTML": newMain }, "", url);
 
-            setNavBackground()
+            // setNavBackground() // moved to top for better feeling of response
         })
         .catch(function (err) {
             // There was an error
@@ -63,10 +67,15 @@ window.onpopstate = function (e) {
 };
 
 // Set background to current nav button (by adding HTML attribute "data-current='current item'"")
-function setNavBackground() {
+function setNavBackground(id) {
     // Reset
     for (let link of navLinks) {
         link.parentElement.removeAttribute("data-current");
+    }
+
+    if (id) {
+        document.querySelector("#" + id).setAttribute("data-current", "current item");
+        return;
     }
 
     // Get pathname and replace 
