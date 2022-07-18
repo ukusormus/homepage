@@ -2,13 +2,40 @@
 	--primary: white;
 	--secondary: #395B64;
 	--text: white;
+	--button: #A5C9CA;
+	--button-action: #E7F6F2;
+	--button-text: #5a3635;
 	/* --border */
 	--background: #2C3333;
 }
 
+:root {
+	--shadow-color: 180deg 12% 8%;
+	--shadow-elevation-low:
+	  0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.27),
+	  0.4px 0.8px 1.1px -1.1px hsl(var(--shadow-color) / 0.29),
+	  1px 1.9px 2.5px -2.1px hsl(var(--shadow-color) / 0.32);
+	--shadow-elevation-medium:
+	  0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.28),
+	  0.8px 1.7px 2.2px -0.7px hsl(var(--shadow-color) / 0.3),
+	  2px 4px 5.3px -1.4px hsl(var(--shadow-color) / 0.32),
+	  4.8px 9.5px 12.5px -2.1px hsl(var(--shadow-color) / 0.35);
+	--shadow-elevation-high:
+	  0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.26),
+	  1.5px 3px 3.9px -0.3px hsl(var(--shadow-color) / 0.27),
+	  2.7px 5.4px 7.1px -0.6px hsl(var(--shadow-color) / 0.28),
+	  4.3px 8.7px 11.4px -0.9px hsl(var(--shadow-color) / 0.29),
+	  6.7px 13.5px 17.7px -1.2px hsl(var(--shadow-color) / 0.3),
+	  10.3px 20.6px 27.1px -1.5px hsl(var(--shadow-color) / 0.31),
+	  15.4px 30.9px 40.7px -1.8px hsl(var(--shadow-color) / 0.32),
+	  22.5px 45px 59.2px -2.1px hsl(var(--shadow-color) / 0.33);
+  }
+
 /*
 https://mxb.dev/blog/color-theme-switcher/
 https://colorhunt.co/palette/2c3333395b64a5c9cae7f6f2
+#2C3333
+#395B64
 #A5C9CA
 #E7F6F2*/
 
@@ -16,21 +43,30 @@ https://colorhunt.co/palette/2c3333395b64a5c9cae7f6f2
 *:before,
 *:after {
 	box-sizing: border-box;
+	margin: 0;
+	
+	line-height: 1.5;
 }
 
 html,
 body {
-	padding: 0;
-	margin: 0;
-	font-family: "Avenir", "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+	/* https://systemfontstack.com/ */
+}
+
+/* Fix these elements not inheriting body's font */
+textarea, input, button, select { 
+	font-family: inherit; 
+	font-size: inherit; 
 }
 
 body {
 	display: grid;
 	height: 100vh;
 	grid-template-rows: auto 1fr auto;
-	justify-content: center; /* Center body */
-	
+	justify-content: center;
+	/* Center body */
+
 	background-color: var(--background);
 }
 
@@ -39,7 +75,7 @@ header {
 	justify-content: center;
 }
 
-header > nav {
+header>nav {
 	margin: auto;
 }
 
@@ -201,35 +237,43 @@ a[rel="tag"]:last-child {
 }
 
 /* Contact Form */
-form {
+form[name="contact"] {
 	display: grid;
 	padding: 2em 0;
 }
 
-form label {
+form[name="contact"] label {
 	display: none;
 }
 
-input,
-textarea,
-button {
+form[name="contact"] input,
+form[name="contact"] textarea,
+form[name="contact"] button {
 	width: 100%;
 	padding: 1em;
 	margin-bottom: 1em;
 	font-size: 1rem;
-	font-family: "Avenir", "Avenir Next", sans-serif;
+
+	border: none;
+	box-shadow: var(--shadow-elevation-low);
 }
 
-input,
-textarea {
-	border: 1px solid black;
+form[name="contact"] textarea {
+	resize: vertical;
 }
 
-button {
-	border: 1px solid var(--primary);
-	background-color: var(--primary);
-	color: var(--secondary);
+form[name="contact"] button {
+	background-color: var(--secondary);
+	color: var(--text);
+	box-shadow: var(--shadow-elevation-medium);
 	cursor: pointer;
+	transition: box-shadow 0.08s, background-color 0.15s, color 0.15s;
+}
+
+form[name="contact"] button:hover {
+	background-color: var(--button-action);
+	color: var(--secondary);
+	box-shadow: var(--shadow-elevation-high);
 }
 
 @media screen and (min-width:768px) {
