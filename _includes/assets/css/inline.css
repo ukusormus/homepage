@@ -159,7 +159,7 @@ header nav ul {
 header nav li {
 	display: inline-block;
 	margin: .25em .25em;
-	transition: opacity 0.08s, box-shadow 0.08s, background-color 0.15s, color 0.15s;
+	transition: transform 0.02s, box-shadow 0.08s, background-color 0.15s, color 0.15s;
 	border: 1px solid var(--secondary);
 	border-radius: 1px;
 	/* pointer-events: auto; */
@@ -168,11 +168,14 @@ header nav li {
 header nav li[data-current="current item"] {
 	background-color: var(--secondary);
 	box-shadow: var(--shadow-elevation-low);
+	transform: rotate(-7deg);
 }
 
 header nav li[data-current="current item"] a {
 	cursor: default;
 	pointer-events: none;
+	display: inline-block;
+	transform: rotate(7deg);
 }
 
 header nav li a {
@@ -182,13 +185,13 @@ header nav li a {
 }
 
 header nav ul:hover>* {
-	opacity: 0.8;
+	/* opacity: 0.8; */
 	background-color: var(--background);
 	box-shadow: none;
 }
 
 header nav ul:hover>*:hover {
-	opacity: 1;
+	/* opacity: 1; */
 	background-color: var(--secondary);
 	box-shadow: var(--shadow-elevation-low);
 }
@@ -225,7 +228,8 @@ a[rel="tag"]:visited {
 	margin: 0 .5em .5em 0;
 }
 
-a[rel="tag"]:hover {
+a[rel="tag"]:hover,
+a[rel="tag"]:focus {
 	border: 1px solid var(--primary);
 	background-color: var(--primary);
 	color: var(--secondary);
@@ -269,7 +273,8 @@ form[name="contact"] button {
 	transition: box-shadow 0.08s, background-color 0.15s, color 0.15s;
 }
 
-form[name="contact"] button:hover {
+form[name="contact"] button:hover,
+form[name="contact"] button:focus {
 	background-color: var(--button-action);
 	color: var(--secondary);
 	box-shadow: var(--shadow-elevation-high);
