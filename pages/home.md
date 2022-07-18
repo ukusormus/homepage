@@ -7,6 +7,6 @@ eleventyNavigation:
   key: Home
   order: 0
 ---
-# Welcome
+# Hello, my name is Uku
 
-This is work in progress.
+This page is work in progress.

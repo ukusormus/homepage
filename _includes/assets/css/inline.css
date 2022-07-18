@@ -2,34 +2,36 @@
 	--primary: white;
 	--secondary: #395B64;
 	--text: white;
-	--button: #A5C9CA;
 	--button-action: #E7F6F2;
-	--button-text: #5a3635;
-	/* --border */
 	--background: #2C3333;
+	--highlight: #F7EC59;
 }
 
 :root {
 	--shadow-color: 180deg 12% 8%;
+	--shadow-elevation-lowest:
+		0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.27),
+		0.4px 0.8px 1.1px -1.1px hsl(var(--shadow-color) / 0.29),
+		1px 1.9px 2.5px -2.1px hsl(var(--shadow-color) / 0.32);
 	--shadow-elevation-low:
-	  0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.27),
-	  0.4px 0.8px 1.1px -1.1px hsl(var(--shadow-color) / 0.29),
-	  1px 1.9px 2.5px -2.1px hsl(var(--shadow-color) / 0.32);
+		0.6px 0.8px 1.2px hsl(var(--shadow-color) / 0.38),
+		1.1px 1.5px 2.3px -0.9px hsl(var(--shadow-color) / 0.47),
+		2.8px 3.9px 5.9px -1.8px hsl(var(--shadow-color) / 0.57);
 	--shadow-elevation-medium:
-	  0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.28),
-	  0.8px 1.7px 2.2px -0.7px hsl(var(--shadow-color) / 0.3),
-	  2px 4px 5.3px -1.4px hsl(var(--shadow-color) / 0.32),
-	  4.8px 9.5px 12.5px -2.1px hsl(var(--shadow-color) / 0.35);
+		0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.28),
+		0.8px 1.7px 2.2px -0.7px hsl(var(--shadow-color) / 0.3),
+		2px 4px 5.3px -1.4px hsl(var(--shadow-color) / 0.32),
+		4.8px 9.5px 12.5px -2.1px hsl(var(--shadow-color) / 0.35);
 	--shadow-elevation-high:
-	  0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.26),
-	  1.5px 3px 3.9px -0.3px hsl(var(--shadow-color) / 0.27),
-	  2.7px 5.4px 7.1px -0.6px hsl(var(--shadow-color) / 0.28),
-	  4.3px 8.7px 11.4px -0.9px hsl(var(--shadow-color) / 0.29),
-	  6.7px 13.5px 17.7px -1.2px hsl(var(--shadow-color) / 0.3),
-	  10.3px 20.6px 27.1px -1.5px hsl(var(--shadow-color) / 0.31),
-	  15.4px 30.9px 40.7px -1.8px hsl(var(--shadow-color) / 0.32),
-	  22.5px 45px 59.2px -2.1px hsl(var(--shadow-color) / 0.33);
-  }
+		0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.26),
+		1.5px 3px 3.9px -0.3px hsl(var(--shadow-color) / 0.27),
+		2.7px 5.4px 7.1px -0.6px hsl(var(--shadow-color) / 0.28),
+		4.3px 8.7px 11.4px -0.9px hsl(var(--shadow-color) / 0.29),
+		6.7px 13.5px 17.7px -1.2px hsl(var(--shadow-color) / 0.3),
+		10.3px 20.6px 27.1px -1.5px hsl(var(--shadow-color) / 0.31),
+		15.4px 30.9px 40.7px -1.8px hsl(var(--shadow-color) / 0.32),
+		22.5px 45px 59.2px -2.1px hsl(var(--shadow-color) / 0.33);
+}
 
 /*
 https://mxb.dev/blog/color-theme-switcher/
@@ -44,7 +46,7 @@ https://colorhunt.co/palette/2c3333395b64a5c9cae7f6f2
 *:after {
 	box-sizing: border-box;
 	margin: 0;
-	
+
 	line-height: 1.5;
 }
 
@@ -55,9 +57,12 @@ body {
 }
 
 /* Fix these elements not inheriting body's font */
-textarea, input, button, select { 
-	font-family: inherit; 
-	font-size: inherit; 
+textarea,
+input,
+button,
+select {
+	font-family: inherit;
+	font-size: inherit;
 }
 
 body {
@@ -65,8 +70,6 @@ body {
 	height: 100vh;
 	grid-template-rows: auto 1fr auto;
 	justify-content: center;
-	/* Center body */
-
 	background-color: var(--background);
 }
 
@@ -75,22 +78,21 @@ header {
 	justify-content: center;
 }
 
-header>nav {
+header > nav {
 	margin: auto;
 }
 
-main {
+header,
+main,
+footer {
 	max-width: 37.5em;
+	padding: 1em;
 }
 
 p,
 pre,
 code,
-small {
-	line-height: 1.5;
-	color: var(--text);
-}
-
+small,
 h1,
 h2,
 h3,
@@ -110,25 +112,9 @@ a[href]:not(:hover) {
 	text-decoration: none;
 }
 
-/* header *,
-h1 *,
-h2 *,
-h3 *,
-h4 *,
-h5 *,
-h6 * {
-	text-decoration: none !important;
-} */
-
 img {
 	max-width: 100%;
 	height: auto;
-}
-
-header,
-main,
-footer {
-	padding: 1em;
 }
 
 main {
@@ -157,6 +143,11 @@ pre {
 	margin: .5em 0;
 }
 
+::selection {
+	color: var(--background);
+	background-color: var(--highlight);
+}
+
 /* Header Logo (style as h2) */
 header>em {
 	display: block;
@@ -170,28 +161,44 @@ header>em {
 header nav ul {
 	padding: 0;
 	list-style: none;
-}
-
-header nav ul :first-child {
-	margin-left: 0;
+	user-select: none;
 }
 
 header nav li {
 	display: inline-block;
 	margin: 0 .25em;
+	transition: opacity 0.08s, box-shadow 0.08s, background-color 0.15s, color 0.15s;
+	border: 1px solid var(--secondary);
+	border-radius: 1px;
+}
+
+
+header nav li[data-current="current item"] {
+	background-color: var(--secondary);
+	box-shadow: var(--shadow-elevation-low);
+}
+
+header nav li[data-current="current item"] a {
+	cursor: default;
+	pointer-events: none;
 }
 
 header nav li a {
 	padding: .25em .5em;
-	border-radius: .25em;
-}
-
-header nav li a[href]:not(:hover) {
+	margin: 0 .25em;
 	text-decoration: none;
 }
 
-header nav li a[data-current="current item"] {
+header nav ul:hover>* {
+	opacity: 0.8;
+	background-color: var(--background);
+	box-shadow: none;
+}
+
+header nav ul:hover>*:hover {
+	opacity: 1;
 	background-color: var(--secondary);
+	box-shadow: var(--shadow-elevation-low);
 }
 
 /* Posts List */
@@ -255,7 +262,7 @@ form[name="contact"] button {
 	font-size: 1rem;
 
 	border: none;
-	box-shadow: var(--shadow-elevation-low);
+	box-shadow: var(--shadow-elevation-lowest);
 }
 
 form[name="contact"] textarea {

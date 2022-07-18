@@ -37,6 +37,11 @@ module.exports = function(eleventyConfig) {
     }, {});
   });
 
+  // String to lowercase
+  eleventyConfig.addFilter("toLowerCase", function(str) {
+    return str.toLowerCase();
+  });
+
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy");
@@ -79,7 +84,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("static/img");
   eleventyConfig.addPassthroughCopy("admin");
-  eleventyConfig.addPassthroughCopy("_includes/assets/css/inline.css");
+  // Copy '_includes/assets' to '_site/_includes/assets'
+  eleventyConfig.addPassthroughCopy("_includes/assets");
 
   /* Markdown Plugins */
   let markdownIt = require("markdown-it");

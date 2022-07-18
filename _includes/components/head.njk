@@ -13,4 +13,5 @@
     {% include "assets/js/inline.js" %}
   {% endset %}
   <script>{{ js | jsmin | safe }}</script>
+  <script defer src="{{ '/_includes/assets/js/router.js' | url }}"></script> <!-- Router -->
 </head>
