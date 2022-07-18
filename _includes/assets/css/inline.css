@@ -78,9 +78,9 @@ header {
 	justify-content: center;
 }
 
-header > nav {
+/* header > nav {
 	margin: auto;
-}
+} */
 
 header,
 main,
@@ -148,30 +148,22 @@ pre {
 	background-color: var(--highlight);
 }
 
-/* Header Logo (style as h2) */
-header>em {
-	display: block;
-	font-size: 2em;
-	margin: .67em 0;
-	font-weight: bold;
-	font-style: normal;
-}
-
 /* Header Nav */
 header nav ul {
 	padding: 0;
 	list-style: none;
 	user-select: none;
+	/* pointer-events: none; */
 }
 
 header nav li {
 	display: inline-block;
-	margin: 0 .25em;
+	margin: .25em .25em;
 	transition: opacity 0.08s, box-shadow 0.08s, background-color 0.15s, color 0.15s;
 	border: 1px solid var(--secondary);
 	border-radius: 1px;
+	/* pointer-events: auto; */
 }
-
 
 header nav li[data-current="current item"] {
 	background-color: var(--secondary);
@@ -283,8 +275,15 @@ form[name="contact"] button:hover {
 	box-shadow: var(--shadow-elevation-high);
 }
 
+/* Responsiveness */
 @media screen and (min-width:768px) {
 	:root {
 		font-size: 1.1rem;
+	}
+}
+
+@media screen and (max-width:360px) {
+	header nav {
+		font-size: calc(4vw);
 	}
 }
