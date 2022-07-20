@@ -45,6 +45,7 @@ https://colorhunt.co/palette/2c3333395b64a5c9cae7f6f2
 *:before,
 *:after {
 	box-sizing: border-box;
+	padding: 0;
 	margin: 0;
 
 	line-height: 1.5;
@@ -54,6 +55,18 @@ html,
 body {
 	font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 	/* https://systemfontstack.com/ */
+}
+
+body {
+	display: grid;
+	/* grid-gap: 1em; */
+	grid-template-rows: 1fr auto;
+	justify-content: center;
+	min-height: 100vh;
+
+
+	color: var(--text);
+	background-color: var(--background);
 }
 
 /* Fix these elements not inheriting body's font or color */
@@ -67,35 +80,31 @@ a {
 	color: inherit;
 }
 
-body {
-	display: grid;
-	height: 100vh;
-	grid-template-rows: auto 1fr auto;
-	justify-content: center;
-	color: var(--text);
-	background-color: var(--background);
-}
-
-header,
-footer {
-	display: grid;
-	justify-content: center;
-}
-
 header,
 main,
 footer {
 	max-width: 37.5em;
-	padding: 1em;
+	/* padding: 1em; */
 }
 
-/* main {
-	width: 100vw;
-} */
+main {
+	padding: 1em;
+	margin-top: 4em;
+}
+
+header {
+	padding-top: 1em;
+	position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
 
 footer {
 	border-top: 1px solid var(--secondary);
 	margin-top: 2em;
+	margin-bottom: 1em;
+	text-align: center;
 }
 
 p {
@@ -139,7 +148,12 @@ main>article :first-child {
 }
 
 pre {
-	font-size: 14px;
+	overflow: auto;
+	max-height: 600px;
+}
+
+pre code {
+	/* font-size: 14px;
 	direction: ltr;
 	text-align: left;
 	white-space: pre;
@@ -152,7 +166,8 @@ pre {
 	-ms-hyphens: none;
 	hyphens: none;
 	padding: 1em;
-	margin: .5em 0;
+	margin: .5em 0; */
+	white-space: pre-wrap;
 }
 
 ::selection {
@@ -166,14 +181,19 @@ header nav ul {
 	list-style: none;
 	user-select: none;
 	/* pointer-events: none; */
+	display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 header nav li {
 	display: inline-block;
 	margin: .25em .25em;
 	transition: transform 0.02s, box-shadow 0.08s, background-color 0.15s, color 0.15s;
-	border: 1px solid var(--secondary);
 	border-radius: 1px;
+	border: 1px solid var(--secondary);
 	/* pointer-events: auto; */
 }
 
@@ -285,6 +305,8 @@ form[name="contact"] button {
 	width: 100%;
 	padding: 1em;
 	margin-bottom: 1em;
+	margin-left: auto;
+	margin-right: auto;
 	font-size: 1rem;
 
 	border: none;
