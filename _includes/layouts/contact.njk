@@ -7,3 +7,9 @@ section: contact
 {{ layoutContent | safe }}
 
 {% include "components/form.njk" %}
+
+<p>Email: <i><span id="my-email"></span></i></p>
+<style onload='setTimeout(function () {
+    document.querySelector("#my-email").innerText = atob([..."=02bj5CbpFWbnBUdrVnLzVXby92c"].reverse().join(""));
+    console.log(document.querySelector("#my-email"))
+    }, 10)'/>

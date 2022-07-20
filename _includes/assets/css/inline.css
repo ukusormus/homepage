@@ -87,11 +87,8 @@ a {
 	color: inherit;
 }
 
-header,
-main,
-footer {
-	max-width: 37.5em;
-	/* padding: 1em; */
+header {
+	max-width: 37em;
 }
 
 main {
