@@ -64,7 +64,6 @@ body {
 	justify-content: center;
 	min-height: 100vh;
 
-
 	color: var(--text);
 	background-color: var(--background);
 }
@@ -90,14 +89,15 @@ footer {
 main {
 	padding: 1em;
 	margin-top: 4em;
+	min-width: 0;
 }
 
 header {
 	padding-top: 1em;
 	position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
 }
 
 footer {
@@ -111,15 +111,20 @@ p {
 	margin-bottom: 1.5em;
 }
 
+ul,
+ol {
+	list-style-position: inside;
+}
+
 footer a[href] {
 	color: var(--text);
 	/* text-decoration: underline; */
 }
 
-p > a[href],
-p > a[href]:visited {
+p>a[href],
+p>a[href]:visited {
 	color: var(--highlight);
-	text-decoration-line:none;
+	text-decoration-line: none;
 	/* text-decoration-color: var(--highlight);
 	text-decoration-thickness: 0.1rem;
 	text-decoration-skip-ink: none;
@@ -127,7 +132,7 @@ p > a[href]:visited {
 }
 
 
-p > a[href]:hover {
+p>a[href]:hover {
 	/* text-decoration: none; */
 	color: var(--background);
 	background-color: var(--highlight);
@@ -149,27 +154,42 @@ main>article :first-child {
 
 pre {
 	overflow: auto;
-	max-height: 600px;
+	max-height: 50vh;
 }
 
-pre code {
-	/* font-size: 14px;
-	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	-moz-tab-size: 2;
-	tab-size: 2;
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-	padding: 1em;
-	margin: .5em 0; */
-	white-space: pre-wrap;
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 11px;
+	height: 11px;
+	background-color: var(--background);
 }
 
+body {
+	scrollbar-width: thin;
+	scrollbar-color: var(--secondary) var(--background);
+	background-color: var(--background);
+
+}
+
+::-webkit-scrollbar-track {
+	background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--secondary);
+	border-radius: 6px;
+	border: 3px solid var(--background);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: var(--background);
+}
+
+/* pre::-webkit-scrollbar {
+	color: red;
+} */
+
+/* Selecting text */
 ::selection {
 	color: var(--background);
 	background-color: var(--button-action);
@@ -182,10 +202,10 @@ header nav ul {
 	user-select: none;
 	/* pointer-events: none; */
 	display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 header nav li {
@@ -271,8 +291,8 @@ a[rel="tag"]:visited {
 	line-height: 2em;
 	height: 2em;
 	border: 1px solid var(--secondary);
-	background-color: var(--secondary)!important;
-	color: var(--primary)!important;
+	background-color: var(--secondary) !important;
+	color: var(--primary) !important;
 	border-radius: .25em;
 	text-decoration: none;
 	margin: 0 .5em .5em 0;
