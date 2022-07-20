@@ -4,6 +4,7 @@
 	--text: white;
 	--button-action: #E7F6F2;
 	--background: #2C3333;
+	--blackground: #1C2121;
 	--highlight: #F7EC59;
 }
 
@@ -112,9 +113,14 @@ header {
 footer {
 	grid-column: 2;
 
-	border-top: 1px solid var(--secondary);
+	border-width: 2px 0px 0px 0px;
+	border-style: solid;
+	border-image: radial-gradient(var(--blackground), var(--background)) 5;
+
+	color: gray;
+
 	margin-top: 2em;
-	margin-bottom: 1em;
+	margin-bottom: 1.5em;
 	text-align: center;
 }
 
@@ -125,11 +131,6 @@ p {
 ul,
 ol {
 	list-style-position: inside;
-}
-
-footer a[href] {
-	color: var(--text);
-	/* text-decoration: underline; */
 }
 
 p>a[href],
@@ -236,8 +237,8 @@ header nav li[data-current="current item"] {
 }
 
 header nav li[data-current="current item"] a {
-	cursor: default;
-	pointer-events: none;
+	/* cursor: default; */
+	/* pointer-events: none; */
 	display: inline-block;
 	transform: rotate(7deg) scale(1);
 }
@@ -250,15 +251,18 @@ header nav li a {
 	text-decoration: none;
 }
 
-header nav ul:hover>* {
-	background-color: var(--background);
-	box-shadow: none;
-}
+/* "Fade out" all children, when parent is hovered, ...*/
+@media (hover: hover) {
+	header nav ul:hover>* {
+		background-color: var(--background);
+		box-shadow: none;
+	}
 
-header nav ul:hover>*:hover {
-	/* opacity: 1; */
-	background-color: var(--secondary);
-	box-shadow: var(--shadow-elevation-low);
+	/* and "fade in" the child that is hovered*/
+	header nav ul:hover>*:hover {
+		background-color: var(--secondary);
+		box-shadow: var(--shadow-elevation-low);
+	}
 }
 
 .pagetitle {
@@ -348,6 +352,11 @@ form[name="contact"] button {
 
 form[name="contact"] textarea {
 	resize: vertical;
+}
+
+form[name="contact"] input,
+form[name="contact"] textarea {
+	background-color: var(--blackground);
 }
 
 form[name="contact"] button {
