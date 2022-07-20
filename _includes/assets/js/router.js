@@ -1,5 +1,8 @@
 const main = document.querySelector("body > main");
 
+// Add current page to history
+window.history.pushState({ "title": document.title, "innerHTML": main.innerHTML }, "", document.location);
+
 // Get links in header and loop over them, 
 //  adding a click event listener to each of them
 const navLinks = document.querySelectorAll("header > nav a");
@@ -59,7 +62,9 @@ function getPageAndUpdate(url) {
 
 // Enable browser navigation
 window.onpopstate = function (e) {
+    alert(e);
     if (e.state) {
+        alert(e.state);
         document.title = e.state.title;
         main.innerHTML = e.state.innerHTML;
         setNavBackground();
