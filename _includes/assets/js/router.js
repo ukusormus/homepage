@@ -9,18 +9,18 @@ for (let link of navLinks) {
         setNavBackground(link.parentElement.id);
         getPageAndUpdate(link.href);
     });
+    fetch(link.href); // fetch to save in cache
 }
+
+// if (document.location.pathname.)
 
 // "Navigate" to given url by changing page's <main>
 function getPageAndUpdate(url) {
-    // If clicking on current page, don't do nothing
+    // If clicking on current page, do nothing
     if (url == document.location) {
         console.log("Already here.");
         return
     }
-    
-    // TODO: don't fetch when we already browsed
-    //  or better yet, prefetch
 
     fetch(url)
         .then(function (response) {
