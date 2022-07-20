@@ -56,13 +56,15 @@ body {
 	/* https://systemfontstack.com/ */
 }
 
-/* Fix these elements not inheriting body's font */
+/* Fix these elements not inheriting body's font or color */
 textarea,
 input,
 button,
-select {
+select,
+a {
 	font-family: inherit;
 	font-size: inherit;
+	color: inherit;
 }
 
 body {
@@ -70,17 +72,15 @@ body {
 	height: 100vh;
 	grid-template-rows: auto 1fr auto;
 	justify-content: center;
+	color: var(--text);
 	background-color: var(--background);
 }
 
-header {
+header,
+footer {
 	display: grid;
 	justify-content: center;
 }
-
-/* header > nav {
-	margin: auto;
-} */
 
 header,
 main,
@@ -89,27 +89,39 @@ footer {
 	padding: 1em;
 }
 
-p,
-pre,
-code,
-small,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* main {
+	width: 100vw;
+} */
+
+footer {
+	border-top: 1px solid var(--secondary);
+	margin-top: 2em;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+footer a[href] {
 	color: var(--text);
+	/* text-decoration: underline; */
 }
 
-a[href],
-a[href]:visited {
-	color: var(--primary);
+p > a[href],
+p > a[href]:visited {
+	color: var(--highlight);
+	text-decoration-line:none;
+	/* text-decoration-color: var(--highlight);
+	text-decoration-thickness: 0.1rem;
+	text-decoration-skip-ink: none;
+	text-underline-offset: -0.1rem; */
 }
 
 
-a[href]:not(:hover) {
-	text-decoration: none;
+p > a[href]:hover {
+	/* text-decoration: none; */
+	color: var(--background);
+	background-color: var(--highlight);
 }
 
 img {
@@ -145,7 +157,7 @@ pre {
 
 ::selection {
 	color: var(--background);
-	background-color: var(--highlight);
+	background-color: var(--button-action);
 }
 
 /* Header Nav */
@@ -196,8 +208,26 @@ header nav ul:hover>*:hover {
 	box-shadow: var(--shadow-elevation-low);
 }
 
+.pagetitle {
+	margin-bottom: 1em;
+}
+
+
 /* Posts List */
-article {
+.postslist {
+	margin-top: 1em;
+}
+
+.posttitle a {
+	text-decoration: none;
+	/* color: var(--highlight); */
+}
+
+.postmeta {
+	color: darkgray;
+}
+
+article:not(:last-child) {
 	margin-bottom: 1em;
 	padding-bottom: 1em;
 	border-bottom: 1px solid #eee;
@@ -213,7 +243,7 @@ main>section>article>* {
 a[rel="tag"],
 a[rel="tag"]:visited {
 	display: inline-block;
-	vertical-align: text-top;
+	/* vertical-align: text-top; */
 	text-transform: uppercase;
 	letter-spacing: .1em;
 	font-size: .625em;
@@ -221,8 +251,8 @@ a[rel="tag"]:visited {
 	line-height: 2em;
 	height: 2em;
 	border: 1px solid var(--secondary);
-	background-color: var(--secondary);
-	color: var(--primary);
+	background-color: var(--secondary)!important;
+	color: var(--primary)!important;
 	border-radius: .25em;
 	text-decoration: none;
 	margin: 0 .5em .5em 0;

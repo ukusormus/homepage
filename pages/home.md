@@ -7,6 +7,10 @@ eleventyNavigation:
   key: Home
   order: 0
 ---
-# Hello, my name is Uku
+# Hey, I'm Uku 👋
 
-This page is work in progress.
+
+I'm a curious mind who likes to create, explore & understand. Interested in humans, machines & how they interact.
+
+Feel free to have a look at my <a href="/about">projects</a> or <a href="/blog">blog</a>!
+

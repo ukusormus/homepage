@@ -5,9 +5,18 @@ section: post
 
 <article>
   <h1>{{ title }}</h1>
-  <p>
+  <p class="postmeta">
     <small>
-      <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
+      <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
+					{% if tags %}
+						⋅
+						{% for tag in tags %}
+						{%- if tag != "post" -%}
+							{% set tagUrl %}/tags/{{ tag }}/{% endset %}
+						  <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
+						{%- endif -%} 
+						{% endfor %}
+					{% endif %}
     </small>
   </p>
 
